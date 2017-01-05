@@ -28,25 +28,25 @@ def _args_parse():
 
 	"""
 	parser = ap.ArgumentParser(description = 'Hyperparameters')
-	parser.add_argument('--image_size', dest = 'img_size', 
+	parser.add_argument('--image_size', type = int, dest = 'img_size', 
 	                             action = 'store', default = 32)
-	parser.add_argument('--features', dest = 'conv_features', 
+	parser.add_argument('--features', type = list, dest = 'conv_features', 
 	                             action = 'store', default = [3, 64, 128, 256])
-	parser.add_argument('--norm', dest = 'normalisation', 
+	parser.add_argument('--norm', type = bool, dest = 'normalisation', 
 	                               action = 'store', default = True)
 	parser.add_argument('--ptype', dest = 'pooling_type', 
 	                                  action = 'store', default = 'max')
-	parser.add_argument('--aug', dest = 'augmentation', 
+	parser.add_argument('--aug', type = bool, dest = 'augmentation', 
 	                                  action = 'store', default = False)
 	parser.add_argument('--dropout', dest = 'dropout_p', 
 	                                  action = 'store', default = 1.0)
-	parser.add_argument('--optype', dest = 'optimization', 
+	parser.add_argument('--optype', type = str, dest = 'optimization', 
 	                                  action = 'store', default = 'ADAM')
-	parser.add_argument('--hszie', dest = 'hidden_layer_size', 
+	parser.add_argument('--hsize', type = int, dest = 'hidden_layer_size', 
 	                                  action = 'store', default = 500)
-	parser.add_argument('--bszie', dest = 'batch_size', 
+	parser.add_argument('--bsize', type = int, dest = 'batch_size', 
 	                                  action = 'store', default = 300)
-	parser.add_argument('--eta', dest = 'learning_rate', 
+	parser.add_argument('--eta', type = float, dest = 'learning_rate', 
 	                                  action = 'store', default = 0.01)
 	flags = parser.parse_args()
 	return flags
